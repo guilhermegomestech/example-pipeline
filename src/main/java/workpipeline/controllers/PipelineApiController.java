@@ -11,6 +11,6 @@ public class PipelineApiController {
 
     @GetMapping("/msg-sucess")
     public ResponseEntity getSucessMsg(){
-        return ResponseEntity.ok("SUCESSO");
+        return ResponseEntity.ok("CRIANDO PIPELINE");
     }
 }
