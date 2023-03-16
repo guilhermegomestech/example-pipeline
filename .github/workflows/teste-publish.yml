@@ -35,6 +35,14 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      # copiamos o artefato construído para uma pasta específica
+      - run: mkdir dist && cp target/*.jar dist
+
+      # aqui fazemos o publicação do artefato para que possa ser baixado nos detalhes de execução do workflow
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: dist
