@@ -47,8 +47,8 @@ jobs:
           name: Package
           path: target
 
-      - uses: bervProject/railway-deploy@main
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        with:
-          service: painful-statement
+#      - uses: bervProject/railway-deploy@main
+#        env:
+#          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+#        with:
+#          service: painful-statement
