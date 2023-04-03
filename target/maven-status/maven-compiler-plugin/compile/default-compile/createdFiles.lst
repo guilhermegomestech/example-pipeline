@@ -1,3 +1,2 @@
-workpipeline\ServletInitializer.class
-workpipeline\controllers\PipelineApiController.class
 workpipeline\WorkPipelineApplication.class
+workpipeline\controllers\PipelineApiController.class
