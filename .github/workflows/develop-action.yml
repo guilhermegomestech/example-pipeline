@@ -27,6 +27,22 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
+      # aqui apenas definimos o commando para executar no runner
+      - name: Maven Test
+        run: mvn test
+
+      # aqui criamos a pasta para armazenar o relatório  dos testes
+      - run: mkdir coverage-report && cp -r target/* coverage-report
+
+#      - name: Publish Test Report
+#        if: ${{ always() }}
+#        uses: scacap/action-surefire-report@v1
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Test Coverage Report
+          path: coverage-report
+
       - uses: actions/upload-artifact@v2
         with:
           name: Package
