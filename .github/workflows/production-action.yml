@@ -5,7 +5,7 @@ on:
     types:
       - closed
     branches:
-      - main
+      - develop
 jobs:
 #  if_merged:
 #    if: github.event.pull_request.merged == true
@@ -29,10 +29,10 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
-        run: mvn -B --update-snapshots package --file pom.xml
+        run: mvn -B package --file pom.xml
 
       - name: Publish package in GitHub Packages
-        run: mvn -B deploy
+        run: mvn -B --update-snapshots deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
