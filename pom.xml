@@ -36,12 +36,18 @@
 	</dependencies>
 
 	<distributionManagement>
+<!--		<repository>-->
+<!--			<id>repo</id>-->
+<!--			<name>MyCo Internal Repository</name>-->
+<!--			<url>https://repo1.maven.org/maven2/</url>-->
+<!--		</repository>-->
 		<repository>
-			<id>repo</id>
-			<name>MyCo Internal Repository</name>
-			<url>https://repo1.maven.org/maven2/</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://guilhermegomestech.github.io/example-pipeline</url>
 		</repository>
 	</distributionManagement>
+
 
 	<build>
 		<plugins>
