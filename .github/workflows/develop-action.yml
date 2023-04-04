@@ -32,7 +32,7 @@ jobs:
         run: mvn test
 
       # aqui criamos a pasta para armazenar o relatório dos testes
-      - run: mkdir coverage-report && cp -r target/site/jacoco/* coverage-report
+      - run: mkdir coverage-report && cp -r target/* coverage-report
 
       - name: Publish Test Report
         if: ${{ always() }}
