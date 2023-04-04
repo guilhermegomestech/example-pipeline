@@ -3,7 +3,7 @@ name: Maven Package
 on:
   push:
     branches:
-      - main
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,10 +17,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Publish package
-        run: mvn -B deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Cache Maven packages
         uses: actions/cache@v2
         with:
@@ -30,16 +27,12 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-     # - name: Publish to GitHub Packages Apache Maven
-     #   run: mvn -B deploy
-     #  env:
-      #    GITHUB_TOKEN: ${{ github.token }}
-      # copiamos o artefato construído para uma pasta específica
-     # - run: mkdir dist && cp target/*.jar dist
+      - name: Publish package in GitHub Packages
+        run: mvn -B deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # aqui fazemos o publicação do artefato para que possa ser baixado nos detalhes de execução do workflow
       - uses: actions/upload-artifact@v2
         with:
           name: Package
           path: target
-#      - run: mkdir dist && cp target/*.jar dist
