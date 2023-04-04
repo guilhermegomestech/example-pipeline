@@ -46,7 +46,10 @@ jobs:
         with:
           name: Package
           path: target
-
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - uses: bervProject/railway-deploy@main
 #        env:
 #          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
