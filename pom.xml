@@ -44,7 +44,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://github.com/guilhermegomestech/example-pipeline</url>
+			<url>https://maven.pkg.github.com/guilhermegomestech/example-pipeline</url>
 		</repository>
 	</distributionManagement>
 
