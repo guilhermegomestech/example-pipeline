@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.example.pipeline</groupId>
 	<artifactId>work-pipeline</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
 	<packaging>war</packaging>
 	<name>work-pipeline</name>
 	<description>Projeto exemplo de uma pipeline em java</description>
