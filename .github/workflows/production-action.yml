@@ -33,10 +33,10 @@ jobs:
 
       - name: Publish package in GitHub Packages
         run: mvn -B deploy
-        with:
-          version-minor: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version-minor: true
 
       - uses: actions/upload-artifact@v2
         with:
