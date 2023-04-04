@@ -35,8 +35,6 @@ jobs:
         run: mvn -B deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          version-minor: true
 
       - uses: actions/upload-artifact@v2
         with:
