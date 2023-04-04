@@ -33,6 +33,8 @@ jobs:
 
       - name: Publish package in GitHub Packages
         run: mvn -B deploy
+        with:
+          version-minor: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
