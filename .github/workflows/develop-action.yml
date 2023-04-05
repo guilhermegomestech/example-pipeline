@@ -27,6 +27,24 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: target
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
       # aqui apenas definimos o commando para executar no runner
       - name: Maven Test
         run: mvn test
@@ -34,16 +52,11 @@ jobs:
       # aqui criamos a pasta para armazenar o relatório  dos testes
       - run: mkdir coverage-report && cp -r target/* coverage-report
 
-#      - name: Publish Test Report
-#        if: ${{ always() }}
-#        uses: scacap/action-surefire-report@v1
+      #      - name: Publish Test Report
+      #        if: ${{ always() }}
+      #        uses: scacap/action-surefire-report@v1
 
       - uses: actions/upload-artifact@v2
         with:
           name: Test Coverage Report
           path: coverage-report
-
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: target
