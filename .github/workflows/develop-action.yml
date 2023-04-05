@@ -45,14 +45,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      # aqui apenas definimos o commando para executar no runner
       - name: Maven Test
         run: mvn test
 
-#      - run: mkdir coverage-report && cp -r target/* coverage-report
-#
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: Test Coverage Report
-#          path: coverage-report
 
