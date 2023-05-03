@@ -15,6 +15,7 @@ public class PipelineApiController {
     public static final Logger LOGGER = Logger.getLogger(PipelineApiController.class.getName());
     @GetMapping("/msg-sucess")
     public ResponseEntity getSucessMsg(){
+        
         LOGGER.info("Chamando mensagem de sucesso...");
         return ResponseEntity.ok("Pipeline executada com sucesso!");
     }
